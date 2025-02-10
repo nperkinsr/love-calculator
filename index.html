@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: rgb(170, 93, 243);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 8px 8px 0px rgba(110, 19, 137, 0.5);
+      display: inline-block;
+      width: 420px;
+      height: 250px;
+    }
+
+    button {
+      background: rgb(170, 93, 243);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 180px;
+    }
+
+    input {
+      height: 30px;
+      width: 190px;
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid rgb(221, 221, 221);
+      text-align: center;
+    }
+
+    input:focus {
+      border: 1px solid rgb(170, 93, 243);
+    }
+
+    ::placeholder {
+      color: rgb(170, 93, 243, 0.5);
+    }
+
+    @media screen and (min-width: 300px) and (max-width: 600px) {
+      input {
+        margin: 5px;
+      }
+
+      .container {
+        padding: 30px;
+        height: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Love Calculator </h1>
+    <p>Enter your names to see your love score</p>
+    <input type="text" id="yourName" placeholder=" Your Name">
+    <input type="text" id="yourCrush" placeholder=" Your Crush's Name">
+    <br><br>
+    <button onclick="calculateLove()">Calculate</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculateLove() {
+      var yourName = document.getElementById("yourName").value;
+      var yourCrush = document.getElementById("yourCrush").value;
+
+      if (yourName === "" || yourCrush === "") {
+        alert("Please enter both names!");
+        return;
+      }
+
+      var loveScore = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("result").innerText =
+        "The love score between " + yourName + " and " + yourCrush + " is " + loveScore + "% 🖤";
+    }
+  </script>
+</body>
+
+</html>
