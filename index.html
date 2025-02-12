@@ -22,9 +22,27 @@
       padding: 40px;
       border-radius: 10px;
       box-shadow: 8px 8px 0px rgba(110, 19, 137, 0.5);
-      display: inline-block;
-      width: 420px;
-      height: 250px;
+      width: 450px;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      height: 30px;
+      width: 190px;
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid rgb(221, 221, 221);
+      text-align: center;
     }
 
     button {
@@ -37,21 +55,23 @@
       width: 180px;
     }
 
-    input {
-      height: 30px;
-      width: 190px;
-      padding: 4px;
-      border-radius: 10px;
-      border: 1px solid rgb(221, 221, 221);
-      text-align: center;
-    }
-
     input:focus {
       border: 1px solid rgb(170, 93, 243);
     }
 
     ::placeholder {
       color: rgb(170, 93, 243, 0.5);
+    }
+
+    #loveScoreText {
+      font-size: 16px;
+      color: #333;
+    }
+
+    #resultMessage {
+      font-size: 14px;
+      color: rgb(170, 93, 243);
+      margin-top: 10px;
     }
 
     @media screen and (min-width: 300px) and (max-width: 600px) {
@@ -61,7 +81,7 @@
 
       .container {
         padding: 30px;
-        height: 350px;
+        height: 380px;
       }
     }
   </style>
@@ -71,11 +91,14 @@
   <div class="container">
     <h1>Love Calculator </h1>
     <p>Enter your names to see your love score</p>
-    <input type="text" id="yourName" placeholder=" Your Name">
-    <input type="text" id="yourCrush" placeholder=" Your Crush's Name">
+    <div class="input-group">
+      <input type="text" id="yourName" placeholder=" Your Name">
+      <input type="text" id="yourCrush" placeholder=" Your Crush's Name">
+    </div>
     <br><br>
     <button onclick="calculateLove()">Calculate</button>
-    <p id="result"></p>
+    <p id="loveScoreText"></p>
+    <p id="resultMessage"></p>
   </div>
 
   <script>
@@ -89,8 +112,32 @@
       }
 
       var loveScore = Math.floor(Math.random() * 100) + 1;
-      document.getElementById("result").innerText =
-        "The love score between " + yourName + " and " + yourCrush + " is " + loveScore + "% 🖤";
+      var message = "";
+
+      if (loveScore >= 1 && loveScore <= 10) {
+        message = "Your connection is weaker than a train station WiFi signal 🚂";
+      } else if (loveScore >= 11 && loveScore <= 20) {
+        message = "The percentage of people owning a hamster in the UK is higher than your chances here 🐹";
+      } else if (loveScore >= 21 && loveScore <= 30) {
+        message = "You're more likely to guess a stranger's PIN than for this to turn into lasting love 💳";
+      } else if (loveScore >= 31 && loveScore <= 40) {
+        message = "Your love is like a cup of tea made by someone else — acceptable, but not quite right. 🫖";
+      } else if (loveScore >= 41 && loveScore <= 50) {
+        message = "This romance is like a British summer — sometimes warm, mostly disappointing. ☀️";
+      } else if (loveScore >= 51 && loveScore <= 60) {
+        message = "It's got potential, but don't cancel your Bumble subscription just yet. 🐝";
+      } else if (loveScore >= 61 && loveScore <= 70) {
+        message = "This love is like an old £5 note — still works, but you might get funny looks. 💷";
+      } else if (loveScore >= 71 && loveScore <= 80) {
+        message = "This is the relationship equivalent of finding an empty seat on a rush hour Tube: rare, but not impossible! 🚇";
+      } else if (loveScore >= 81 && loveScore <= 90) {
+        message = "You two are a better match than socks fresh from the tumble dryer. 🧦";
+      } else if (loveScore >= 91 && loveScore <= 100) {
+        message = "Soulmates! You love each other like Kanye loves Kanye 🎙️";
+      }
+
+      document.getElementById("loveScoreText").innerText = "The love score between " + yourName + " and " + yourCrush + " is " + loveScore + "% 🖤";
+      document.getElementById("resultMessage").innerText = message;
     }
   </script>
 </body>
