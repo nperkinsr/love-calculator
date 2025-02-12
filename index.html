@@ -9,19 +9,34 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: rgb(170, 93, 243);
-      padding: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      background: linear-gradient(300deg, #ff0404, #ff1bb3, #92c7ff);
+      background-size: 180% 180%;
+      animation: gradient-animation 10s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .container {
       background: white;
       padding: 40px;
       border-radius: 10px;
-      box-shadow: 8px 8px 0px rgba(110, 19, 137, 0.5);
+      box-shadow: 8px 8px 0px rgba(182, 0, 0, 0.3);
       width: 450px;
       height: 320px;
       display: flex;
@@ -40,13 +55,13 @@
       height: 30px;
       width: 190px;
       padding: 4px;
-      border-radius: 10px;
-      border: 1px solid rgb(221, 221, 221);
+      border-radius: 6px;
+      border: 1px solid rgb(244, 57, 184);
       text-align: center;
     }
 
     button {
-      background: rgb(170, 93, 243);
+      background: rgb(244, 57, 184);
       color: white;
       padding: 12px;
       border: none;
@@ -56,11 +71,11 @@
     }
 
     input:focus {
-      border: 1px solid rgb(170, 93, 243);
+      border: 1px solid rgb(244, 57, 184);
     }
 
     ::placeholder {
-      color: rgb(170, 93, 243, 0.5);
+      color: rgb(244, 57, 184, 0.7);
     }
 
     #loveScoreText {
